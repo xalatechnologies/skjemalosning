@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import PrivateRoute from './components/PrivateRoute';
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import CreatorDashboard from './pages/FormCreator/CreatorDashboard';
+import UserDashboard from './pages/User/UserDashboard';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin/*" element={<PrivateRoute element={<AdminDashboard />} allowedRoles={['Admin']} />} />
+        <Route path="/creator/*" element={<PrivateRoute element={<CreatorDashboard />} allowedRoles={['FormCreator']} />} />
+        <Route path="/user/*" element={<PrivateRoute element={<UserDashboard />} allowedRoles={['User']} />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

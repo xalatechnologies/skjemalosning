@@ -1,0 +1,49 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #3498db;
+    color: white;
+  
+    &__brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  
+    &__menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+  
+      li {
+        a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  
+    &__cta {
+      background-color: #e74c3c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #c0392b;
+      }
+    }
+  }
+  
